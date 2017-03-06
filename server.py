@@ -8,24 +8,14 @@ from sklearn.preprocessing import normalize
 
 
 app = Flask('__name__')
-filename = 'D:/Vacation/ML/sangam/classifier_7.sav'
+filename = 'D:/Vacation/ML/sangam/main/classifier.sav'
 time = [0, 0, 0]
-check=0
-init_time=0
-i=0
-checkState=False
-global_n=1
 data = {"walking":str(time[0])+",0", "running":str(time[1])+",0", "standing":str(time[2])+",0"}
 
 @app.route('/', methods = ['GET', 'POST'])
 def index():
     global time
-    global check
     global data
-    global i
-    global global_n
-    global init_time
-    global checkState
     arduino_data = request.get_json()
 
     if request.method=="GET":
